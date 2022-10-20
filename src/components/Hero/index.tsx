@@ -10,7 +10,7 @@ export function Hero() {
       <HeroContainer>
         <div>
           <HeroHeading>Encontre o café perfeito <br></br> para qualquer hora do dia</HeroHeading>
-          <h3>Com o delivery da Starcoffee você recebe seu café onde estiver, a qualquer hora</h3>
+          <p>Com o delivery da Starcoffee você recebe seu café onde estiver, a qualquer hora</p>
           <GridHighlights>
             <HighlightContainer>
               <span><ShoppingCart size={'1.125rem'} weight={'fill'} /></span>

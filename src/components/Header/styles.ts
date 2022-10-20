@@ -4,7 +4,7 @@ import logo from '../../assets/logo.svg'
 
 export const Logo = styled.div`
   width: 12rem;
-  height: 3rem;
+  height: 3.5rem;
   background: url(${logo}) no-repeat center;
   background-size: contain;
 `
@@ -15,7 +15,13 @@ export const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.15); */
+  box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.05);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: ${props => props.theme.white};
+  z-index: 1000;
 `
 
 export const OptionsContainer = styled.div`
@@ -30,7 +36,7 @@ const BaseA = styled.a`
   padding: .5rem 1rem;
   display: flex;
   align-items: center;
-  font-weight: 600;
+  font-weight: 500;
   gap: .5rem;
   height: 2.25rem;
   transition: all ease 100ms;

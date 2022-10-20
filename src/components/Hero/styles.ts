@@ -4,6 +4,8 @@ export const HeroBase = styled.section`
   background-color: #D4E9E2;
   width: 100%;
   height: 25rem;
+  margin-top: 5.5rem;
+  margin-bottom: 1rem;
 `
 
 export const HeroContainer = styled.div`
@@ -20,10 +22,11 @@ export const HeroContainer = styled.div`
 `
 
 export const HeroHeading = styled.h1`
-  font-family: 'FreightSans', sans-serif;
-  text-transform: uppercase;
+  line-height: 1;
   font-size: 2.625rem;
   color: ${props => props.theme["green-900"]};
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
 `
 
 export const GridHighlights = styled.div`
@@ -32,7 +35,7 @@ export const GridHighlights = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  width: 90%;
+  width: 85%;
   margin-bottom: 1.25rem;
 `
 
@@ -58,7 +61,7 @@ export const HighlightContainer = styled.div`
 
   p {
     display: inline-block;
-    font-weight: 700;
-    font-size: 1.125rem;
+    font-weight: 500;
+    font-size: 1rem;
   }
 `
