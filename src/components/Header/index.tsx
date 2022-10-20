@@ -1,9 +1,13 @@
 import { MapPin, ShoppingCart } from "phosphor-react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { ProductsContext } from "../../context/productsContext";
 import { FlexContainer } from "../../styles/global";
-import { HeaderContainer, Logo, OptionsContainer, PrimaryA, SecondaryA } from "./styles";
+import { Badge, HeaderContainer, Logo, OptionsContainer, PrimaryA, SecondaryA } from "./styles";
 
 export function Header() {
+  const { cartAmount } = useContext(ProductsContext)
+
   return (
     <HeaderContainer>
       <FlexContainer>
@@ -15,6 +19,7 @@ export function Header() {
           <Link to={'/checkout'}>
             <PrimaryA>
               <ShoppingCart size={'1.25rem'} weight="fill" />
+              {cartAmount > 0 && <Badge>{cartAmount}</Badge>}
             </PrimaryA>
           </Link>
         </OptionsContainer>

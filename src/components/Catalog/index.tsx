@@ -10,14 +10,7 @@ export function Catalog() {
       <CatalogContainer>
         {products.map((product) => {
           return (
-            <CatalogItem
-              key={product.name}
-              name={product.name}
-              description={product.description}
-              image={product.image}
-              price={product.price}
-              tags={product.tags}
-            />
+            <CatalogItem key={product.name} coffeeData={product} />
           )
         })}
       </CatalogContainer>

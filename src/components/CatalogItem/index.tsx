@@ -1,4 +1,7 @@
 import { ShoppingCart } from "phosphor-react";
+import { useContext, useState } from "react";
+import { ProductsContext } from "../../context/productsContext";
+import { AmountControl } from "../AmountControls";
 import { CatalogItemContainer, ButtonQuant, CartButton, Tag, Description } from "./styles";
 
 interface ItensProps {
@@ -9,26 +12,45 @@ interface ItensProps {
   tags: string[]
 }
 
-export function CatalogItem({price, image, name, description, tags}: ItensProps) {
+interface CoffeeProps {
+  coffeeData: ItensProps
+}
+
+export function CatalogItem({ coffeeData }: CoffeeProps) {
+  const [amount, setAmount] = useState(1)
+  const { addToCart,cartItens } = useContext(ProductsContext)
+
+  function handleIncreaseAmount() {
+    setAmount(state => state + 1)
+  }
+
+  function handleDecreaseAmount() {
+    setAmount(state => state - 1)
+  }
+
+  function handleAddToCart() {
+    const toAddProduct = {
+      ...coffeeData,
+      amount,
+    }
+    addToCart(toAddProduct)
+  }
+
   return (
     <CatalogItemContainer>
-      <img src={image} alt="" />
-      <h3>{name}</h3>
+      <img src={coffeeData.image} alt="" />
+      <h3>{coffeeData.name}</h3>
       <div>
-        {tags.map(tags => <Tag key={tags}>{tags}</Tag>)}
+        {coffeeData.tags.map(tags => <Tag key={tags}>{tags}</Tag>)}
       </div>
-      <Description>{description}</Description>
-      <h4>R$ {price.toFixed(2).replace('.',',')}</h4>
-      <div>
-        <div>
-          <ButtonQuant>-</ButtonQuant>
-          <input type="number" defaultValue={1} />
-          <ButtonQuant>+</ButtonQuant>
-        </div>
-        <CartButton title="Adicionar ao carrinho">
-          <ShoppingCart size={"1.125rem"} weight="fill" />
-        </CartButton>
-      </div>
+      <Description>{coffeeData.description}</Description>
+      <h4>R$ {coffeeData.price.toFixed(2).replace('.',',')}</h4>
+      <AmountControl 
+          amount={amount}
+          handleAddToCart={handleAddToCart} 
+          handleDecreaseAmount={handleDecreaseAmount} 
+          handleIncreaseAmount={handleIncreaseAmount}
+        />
     </CatalogItemContainer>
   );
 }

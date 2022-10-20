@@ -7,6 +7,12 @@ export const Logo = styled.div`
   height: 3.5rem;
   background: url(${logo}) no-repeat center;
   background-size: contain;
+  animation: all ease 100ms;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
 `
 
 export const HeaderContainer = styled.header`
@@ -69,4 +75,18 @@ export const SecondaryA = styled(BaseA)`
   &:hover {
     background-color: ${props => props.theme["green-100"]};
   }
+`
+
+export const Badge = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 5rem;
+  background-color: ${props => props.theme["green-900"]};
+  padding: .5rem;
+  font-size: 0.875rem;
+  color: ${props => props.theme.white};
+  top: 0.5rem;
 `

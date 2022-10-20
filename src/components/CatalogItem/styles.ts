@@ -50,11 +50,17 @@ div {
       border: none;
       border-radius: 3px;
       font-size: 1rem;
+      font-weight: 500;
       background-color: transparent;
       outline: none;
-  }
-  }
-}
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }}
 `
 
 export const Description = styled.span`

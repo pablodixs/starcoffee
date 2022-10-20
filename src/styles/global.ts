@@ -67,6 +67,14 @@ export const GlobalStyle = createGlobalStyle`
     text-rendering: geometricPrecision;
     -webkit-font-smoothing: antialiased;
   }
+
+  a {
+    text-decoration: none;
+  }
+
+  button {
+    cursor: pointer;
+  }
 `
 
 export const Container = styled.div`
