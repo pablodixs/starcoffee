@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Heading = styled.h1`
@@ -129,24 +130,42 @@ export const ConfirmButton = styled.button`
   transition: all ease 100ms;
   cursor: pointer;
 
+  &:disabled {
+    background-color: ${props => props.theme["green-900"]};
+    cursor: not-allowed;
+  }
+
   &:hover {
     background-color: ${props => props.theme["green-900"]};
   }
 `
 
-export const ItemCard = styled.div`
-  background-color: ${props => props.theme.white};
-  border-radius: 5px;
-  padding: .5rem;
-  display: flex;
-  gap: .5rem;
-  margin-bottom: 1rem;
+export const CartMessage = styled.div`
+  text-align: center;
+  margin: 1rem;
 
-  img {
-    width: 50px;
+  p {
+    margin-top: 1rem;
+  }
+`
+
+export const StyledLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  border-radius: 5rem;
+  padding: 0.5rem 1rem;
+  background-color: ${props => props.theme["green-500"]};
+  color: ${props => props.theme["white"]};
+  transition: all ease 100ms;
+
+  &:hover {
+    background-color: ${props => props.theme["green-900"]};
   }
 
-  h4 {
-    font-weight: 600;
+  svg {
+    fill: ${props => props.theme.white};
   }
 `

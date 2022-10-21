@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ProductsContext } from "../../context/productsContext";
 import { FlexContainer } from "../../styles/global";
-import { Badge, HeaderContainer, Logo, OptionsContainer, PrimaryA, SecondaryA } from "./styles";
+import { Badge, CartButton, HeaderContainer, Logo, OptionsContainer, PrimaryA, SecondaryA } from "./styles";
 
 export function Header() {
   const { cartAmount } = useContext(ProductsContext)
@@ -17,10 +17,10 @@ export function Header() {
             <MapPin size={'1.125rem'} weight="fill" /> Brasília, DF
           </SecondaryA>
           <Link to={'/checkout'}>
-            <PrimaryA>
+            <CartButton>
               <ShoppingCart size={'1.25rem'} weight="fill" />
               {cartAmount > 0 && <Badge>{cartAmount}</Badge>}
-            </PrimaryA>
+            </CartButton>
           </Link>
         </OptionsContainer>
       </FlexContainer>

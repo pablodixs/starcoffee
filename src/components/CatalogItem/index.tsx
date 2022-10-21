@@ -5,6 +5,7 @@ import { AmountControl } from "../AmountControls";
 import { CatalogItemContainer, ButtonQuant, CartButton, Tag, Description } from "./styles";
 
 interface ItensProps {
+  id: number
   name: string
   image: string
   price: number
@@ -18,7 +19,8 @@ interface CoffeeProps {
 
 export function CatalogItem({ coffeeData }: CoffeeProps) {
   const [amount, setAmount] = useState(1)
-  const { addToCart,cartItens } = useContext(ProductsContext)
+  
+  const { addToCart } = useContext(ProductsContext)
 
   function handleIncreaseAmount() {
     setAmount(state => state + 1)

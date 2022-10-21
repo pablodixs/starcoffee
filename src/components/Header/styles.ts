@@ -48,7 +48,15 @@ const BaseA = styled.a`
   transition: all ease 100ms;
 `
 
-export const PrimaryA = styled(BaseA)`
+export const CartButton = styled.span`
+  display: inline-block;
+  border-radius: 5rem;
+  padding: .5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 2.25rem;
+  transition: all ease 100ms;
   background-color: ${props => props.theme["green-500"]};
 
   svg {

@@ -15,6 +15,7 @@ import irlandesImage from '../assets/irlandes.png'
 
 export const products = [
   {
+    id: 1,
     name: 'Expresso Tradicional',
     tags: ['Tradicional'],
     description: 'O tradicional café feito com água quente e grãos moídos',
@@ -22,6 +23,7 @@ export const products = [
     image: expressoImage,
   },
   {
+    id: 2,
     name: 'Expresso Americano',
     tags: ['Tradicional'],
     description: 'Expresso diluído, menos intenso que o tradicional',
@@ -29,6 +31,7 @@ export const products = [
     image: americanImage,
   },
   {
+    id: 3,
     name: 'Expresso Cremoso',
     tags: ['Tradicional'],
     description: 'Café expresso tradicional com espuma cremosa',
@@ -36,6 +39,7 @@ export const products = [
     image: cremosoImage,
   },
   {
+    id: 4,
     name: 'Expresso Gelado',
     tags: ['Tradicional', 'Gelado'],
     description: 'Bebida preparada com café expresso e cubos de gelo',
@@ -43,6 +47,7 @@ export const products = [
     image: geladoImage,
   },
   {
+    id: 5,
     name: 'Café com Leite',
     tags: ['Tradicional', 'Com Leite'],
     description: 'Meio a meio de expresso tradicional com leite vaporizado',
@@ -50,6 +55,7 @@ export const products = [
     image: comLeiteImage,
   },
   {
+    id: 6,
     name: 'Latte',
     tags: ['Tradicional', 'Com Leite'],
     description: 'Uma dose de café expresso com o dobro de leite e espuma cremosa',
@@ -57,6 +63,7 @@ export const products = [
     image: latteImage,
   },
   {
+    id: 7,
     name: 'Capuccino',
     tags: ['Tradicional', 'Com Leite'],
     description: 'Bebida com canela feita de doses iguais de café, leite e espuma',
@@ -64,6 +71,7 @@ export const products = [
     image: capuccinoImage,
   },
   {
+    id: 8,
     name: 'Macciato',
     tags: ['Tradicional', 'Com Leite'],
     description: 'Café expresso misturado com um pouco de leite quente e espuma',
@@ -71,6 +79,7 @@ export const products = [
     image: macchiatoImage,
   },
   {
+    id: 9,
     name: 'Mocaccino',
     tags: ['Tradicional', 'Com Leite'],
     description: 'Café expresso com calda de chocolate, pouco leite e espuma',
@@ -78,6 +87,7 @@ export const products = [
     image: mocaccinoImage,
   },
   {
+    id: 10,
     name: 'Chocolate Quente',
     tags: ['Especial', 'Com Leite'],
     description: 'Bebida feita com chocolate dissolvido no leite quente e café',
@@ -85,6 +95,7 @@ export const products = [
     image: chocolateImage,
   },
   {
+    id: 11,
     name: 'Cubano',
     tags: ['Especial', 'Alcóolico', 'Gelado'],
     description: 'Drink gelado de café expresso com rum, creme de leite e hortelã',
@@ -92,6 +103,7 @@ export const products = [
     image: cubanoImage,
   },
   {
+    id: 12,
     name: 'Havaiano',
     tags: ['Especial'],
     description: 'Bebida adocicada preparada com café e leite de coco',
@@ -99,6 +111,7 @@ export const products = [
     image: havaianoImage,
   },
   {
+    id: 13,
     name: 'Árabe',
     tags: ['Especial'],
     description: 'Bebida preparada com grãos de café árabe e especiarias',
@@ -106,6 +119,7 @@ export const products = [
     image: arabeImage,
   },
   {
+    id: 14,
     name: 'Irlandês',
     tags: ['Especial', 'Álcoolico'],
     description: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',

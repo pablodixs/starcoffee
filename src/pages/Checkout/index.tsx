@@ -1,24 +1,27 @@
-import { MapPin, CurrencyDollarSimple } from "phosphor-react";  
+import { MapPin, CurrencyDollarSimple, House } from "phosphor-react";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { AmountControl } from "../../components/AmountControls";
+import { CartItem } from "../../components/CartItem";
 
 import { HeaderAlt } from "../../components/HeaderAlt";
 import { ProductsContext } from "../../context/productsContext";
 import { Container } from "../../styles/global";
-import { 
-  CheckoutContainer, 
-  ConfirmButton, 
-  Heading, 
-  InfoContainer, 
-  InputContainer, 
-  ItemCard, 
-  ItensContainer, 
-  LastInputContainer, 
-  ListItensContainer 
+import {
+  CartMessage,
+  CheckoutContainer,
+  ConfirmButton,
+  Heading,
+  InfoContainer,
+  InputContainer,
+  ItensContainer,
+  LastInputContainer,
+  ListItensContainer,
+  StyledLink,
 } from "./styles";
 
 export function Checkout() {
-  const { cartItens, addToCart } = useContext(ProductsContext)
+  const { cartItens } = useContext(ProductsContext);
 
   return (
     <>
@@ -27,10 +30,10 @@ export function Checkout() {
         <Heading>Checkout</Heading>
         <CheckoutContainer>
           <InfoContainer>
-            <h3>Complete seu pedido</h3>  
+            <h3>Complete seu pedido</h3>
             <ItensContainer>
               <header>
-                <MapPin weight="fill" size={'1.25rem'} />
+                <MapPin weight="fill" size={"1.25rem"} />
                 <div>
                   <h4>Endereço de entrega</h4>
                   <p>Informe o endereço onde deseja receber seu pedido</p>
@@ -46,7 +49,11 @@ export function Checkout() {
                 <InputContainer>
                   <div>
                     <label htmlFor="adress">Logradouro</label>
-                    <input id="adress" type="text" placeholder="Av. das Araucárias" />
+                    <input
+                      id="adress"
+                      type="text"
+                      placeholder="Av. das Araucárias"
+                    />
                   </div>
                   <div>
                     <label htmlFor="number">Número</label>
@@ -56,7 +63,11 @@ export function Checkout() {
                 <LastInputContainer>
                   <div>
                     <label htmlFor="district">Bairro</label>
-                    <input id="district" type="text" placeholder="Águas Claras" />
+                    <input
+                      id="district"
+                      type="text"
+                      placeholder="Águas Claras"
+                    />
                   </div>
                   <div>
                     <label htmlFor="city">Cidade</label>
@@ -71,10 +82,13 @@ export function Checkout() {
             </ItensContainer>
             <ItensContainer>
               <header>
-                <CurrencyDollarSimple weight="fill" size={'1.25rem'} />
+                <CurrencyDollarSimple weight="fill" size={"1.25rem"} />
                 <div>
                   <h4>Pagamento</h4>
-                  <p>O pagamento é feito na entrega. Escolha a forma que deseja pagar</p>
+                  <p>
+                    O pagamento é feito na entrega. Escolha a forma que deseja
+                    pagar
+                  </p>
                 </div>
               </header>
             </ItensContainer>
@@ -82,24 +96,41 @@ export function Checkout() {
           <ListItensContainer>
             <h3>Produtos selecionados</h3>
             <ItensContainer>
-              <div>
-                {cartItens.map(itens => {
-                  return (
-                    <ItemCard>
-                      <img src={itens.image} />
-                      <div>
-                        <h4>{itens.name}</h4>
-
-                      </div>
-                    </ItemCard>
-                  )
-                })}
-              </div>
-              <ConfirmButton>Confirmar pedido</ConfirmButton>
+              {cartItens.length > 0 ? (
+                <div>
+                  {cartItens.map((itens) => {
+                    return (
+                      <CartItem
+                        key={itens.id}
+                        id={itens.id}
+                        name={itens.name}
+                        image={itens.image}
+                        price={itens.price}
+                        amount={itens.amount}
+                      />
+                    );
+                  })}
+                  <ConfirmButton disabled={cartItens.length === 0}>
+                    Confirmar pedido
+                  </ConfirmButton>
+                </div>
+              ) : (
+                <CartMessage>
+                  <h2>Carrinho vazio :(</h2>
+                  <p>
+                    Volte à página inicial e coloque itens no seu carrinho para
+                    continuar.
+                  </p>
+                  <StyledLink to={"/"}>
+                    <House weight="fill" />
+                    Voltar à página inicial
+                  </StyledLink>
+                </CartMessage>
+              )}
             </ItensContainer>
           </ListItensContainer>
         </CheckoutContainer>
       </Container>
     </>
-  )
+  );
 }
