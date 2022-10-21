@@ -1,8 +1,8 @@
+import { TrashSimple } from "phosphor-react";
 import { useContext } from "react";
 import { ProductsContext } from "../../context/productsContext";
-import { AmountControl } from "../AmountControls";
 import { ButtonQuant } from "../CatalogItem/styles";
-import { ItemCard } from "./styles";
+import { ItemCard, RemoveButton, StyledButtonQuant } from "./styles";
 
 interface CartItensProps {
   id: number
@@ -13,7 +13,7 @@ interface CartItensProps {
 }
 
 export function CartItem({id, name, image, price, amount}: CartItensProps) {
-  const { changeCartItemAmount } = useContext(ProductsContext)
+  const { changeCartItemAmount, removeProductFromCart } = useContext(ProductsContext)
 
   const totalPrice = (price * amount).toFixed(2).replace('.',',')
 
@@ -25,14 +25,21 @@ export function CartItem({id, name, image, price, amount}: CartItensProps) {
     changeCartItemAmount(id, "remove")
   }
 
+  function handleRemoveItemFromCart() {
+    removeProductFromCart(id)
+  }
+
   return (
     <ItemCard>
       <img src={image} />
       <div>
         <h4>{name}</h4>
-        <ButtonQuant onClick={handleAddToCart} disabled={amount <= 1}>-</ButtonQuant>
-        <input type="number" readOnly value={amount} />
-        <ButtonQuant onClick={handleRemoveFromCart}>+</ButtonQuant>
+          <div>     
+            <StyledButtonQuant onClick={handleRemoveFromCart} disabled={amount <= 1}>-</StyledButtonQuant>
+            <input type="number" readOnly value={amount} />
+            <StyledButtonQuant onClick={handleAddToCart}>+</StyledButtonQuant>
+            <RemoveButton onClick={handleRemoveItemFromCart}><TrashSimple size={'0.875rem'} weight="fill" /> Remover</RemoveButton>
+          </div>
       </div>
       <h4>R$ {totalPrice}</h4>
     </ItemCard>

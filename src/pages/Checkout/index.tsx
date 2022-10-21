@@ -17,11 +17,15 @@ import {
   ItensContainer,
   LastInputContainer,
   ListItensContainer,
+  PriceContainer,
+  PriceTotalContainer,
   StyledLink,
 } from "./styles";
 
 export function Checkout() {
-  const { cartItens } = useContext(ProductsContext);
+  const { cartItens, totalPrice } = useContext(ProductsContext);
+
+  const totalPriceOfCart = (totalPrice + 3.5).toFixed(2).replace(".", ",");
 
   return (
     <>
@@ -110,9 +114,23 @@ export function Checkout() {
                       />
                     );
                   })}
-                  <ConfirmButton disabled={cartItens.length === 0}>
-                    Confirmar pedido
-                  </ConfirmButton>
+                  <PriceContainer>
+                    <span>Total de itens</span>
+                    <span>R$ {totalPrice.toFixed(2).replace(".", ",")}</span>
+                  </PriceContainer>
+                  <PriceContainer>
+                    <span>Taxa de entrega</span>
+                    <span>R$ 3,50</span>
+                  </PriceContainer>
+                  <PriceTotalContainer>
+                    <span>Total</span>
+                    <span>R$ {totalPriceOfCart}</span>
+                  </PriceTotalContainer>
+                  <Link to={'/success'}>
+                    <ConfirmButton>
+                      Confirmar pedido
+                    </ConfirmButton>
+                  </Link>
                 </div>
               ) : (
                 <CartMessage>

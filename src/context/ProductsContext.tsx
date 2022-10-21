@@ -1,10 +1,10 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useState, useReducer } from "react";
 import { produce } from "immer";
 
 export const ProductsContext = createContext({} as ProductContextyType);
 
 interface CoffeeProps {
-  id: number
+  id: number;
   name: string;
   image: string;
   price: number;
@@ -14,8 +14,10 @@ interface CoffeeProps {
 interface ProductContextyType {
   cartItens: CoffeeProps[];
   cartAmount: number;
+  totalPrice: number;
   addToCart: (coffeeData: CoffeeProps) => void;
   changeCartItemAmount: (CartItemID: number, type: "add" | "remove") => void;
+  removeProductFromCart: (CartItemID: number) => void;
 }
 
 interface ProductContextProviderProps {
@@ -29,12 +31,17 @@ export function ProductsContextProvider({
 
   const cartAmount = cartItens.length;
 
+  const totalPrice = cartItens.reduce((total, cartItem) => {
+    return total + cartItem.price * cartItem.amount;
+  }, 0)
+
+
   function addToCart(coffeeData: CoffeeProps) {
     const hasProductInCartAlready = cartItens.findIndex(
       (cartItens) => cartItens.name === coffeeData.name
     );
 
-    const newCart = produce(cartItens, (draft) => {
+    const refreshedCart = produce(cartItens, (draft) => {
       if (hasProductInCartAlready < 0) {
         draft.push(coffeeData);
       } else {
@@ -42,11 +49,11 @@ export function ProductsContextProvider({
       }
     });
 
-    setCartItens(newCart);
+    setCartItens(refreshedCart);
   }
 
   function changeCartItemAmount(CartItemID: number, type: "add" | "remove") {
-    const newCart = produce(cartItens, (draft) => {
+    const refreshedCart = produce(cartItens, (draft) => {
       const productIsAlreadyInCart = cartItens.findIndex(
         (cartItem) => cartItem.id === CartItemID
       );
@@ -59,14 +66,33 @@ export function ProductsContextProvider({
       }
     });
 
-    setCartItens(newCart);
+    setCartItens(refreshedCart);
   }
 
-  console.log(cartItens);
+  function removeProductFromCart(CartItemID: number) {
+    const refreshedCart = produce(cartItens, (draft) => {
+      const productIsAlreadyInCart = cartItens.findIndex(
+        (cartItem) => cartItem.id === CartItemID
+      );
+
+      if (productIsAlreadyInCart >= 0) {
+        draft.splice(productIsAlreadyInCart, 1);
+      }
+    });
+
+    setCartItens(refreshedCart);
+  }
 
   return (
     <ProductsContext.Provider
-      value={{ cartItens, cartAmount, addToCart, changeCartItemAmount }}
+      value={{
+        cartItens,
+        cartAmount,
+        totalPrice,
+        addToCart,
+        changeCartItemAmount,
+        removeProductFromCart,
+      }}
     >
       {children}
     </ProductsContext.Provider>
