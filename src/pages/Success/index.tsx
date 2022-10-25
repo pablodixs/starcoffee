@@ -9,7 +9,7 @@ import { ProductsContext } from "../../context/ProductsContext";
 import { Container } from "../../styles/global";
 import { Heading, ItemContainer, SuccessContainer } from "./styles";
 
-import successImage from "../../assets/illustration.png";
+import successImage from "./../../assets/Illustration.png";
 
 export function Success() {
   const { paymentMethod, addressData, cartItens } = useContext(ProductsContext);
