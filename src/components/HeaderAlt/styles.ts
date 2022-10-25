@@ -6,6 +6,6 @@ export const HeaderContainer = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${props => props.theme.white};
+  background-color: ${(props) => props.theme.white};
   z-index: 1000;
-`
+`;

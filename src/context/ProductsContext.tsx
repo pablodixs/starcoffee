@@ -9,13 +9,25 @@ interface CoffeeProps {
   amount: number;
 }
 
+export interface AddressDataProps {
+  address: string;
+  number: string;
+  city: string;
+  district: string;
+  UF: string;
+}
+
 interface ProductContextyType {
   cartItens: CoffeeProps[];
   cartAmount: number;
   totalPrice: number;
+  paymentMethod: string;
+  addressData: any;
   addToCart: (coffeeData: CoffeeProps) => void;
   changeCartItemAmount: (CartItemID: number, type: "add" | "remove") => void;
   removeProductFromCart: (CartItemID: number) => void;
+  getUserAddress: (data: any) => void;
+  selectPaymentMethod: (value: string) => void;
 }
 
 interface ProductContextProviderProps {
@@ -28,14 +40,17 @@ export function ProductsContextProvider({
   children,
 }: ProductContextProviderProps) {
   const [cartItens, setCartItens] = useState<CoffeeProps[]>(() => {
-    const productsOnCart = localStorage.getItem('@starcoffe:cart-itens-1.0.0')
+    const productsOnCart = localStorage.getItem("@starcoffe:cart-itens-1.0.0");
 
     if (productsOnCart) {
-      return JSON.parse(productsOnCart)
-    } 
+      return JSON.parse(productsOnCart);
+    }
 
-    return []
+    return [];
   });
+
+  const [paymentMethod, setPaymentMethod] = useState("");
+  const [addressData, setAddressData] = useState();
 
   const cartAmount = cartItens.length;
 
@@ -90,9 +105,20 @@ export function ProductsContextProvider({
     setCartItens(refreshedCart);
   }
 
+  function selectPaymentMethod(value: string) {
+    setPaymentMethod(value);
+  }
+
+  function getUserAddress(data: any) {
+    setAddressData(data);
+  }
+
   useEffect(() => {
-    localStorage.setItem('@starcoffe:cart-itens-1.0.0', JSON.stringify(cartItens))
-  }, [cartItens])
+    localStorage.setItem(
+      "@starcoffe:cart-itens-1.0.0",
+      JSON.stringify(cartItens)
+    );
+  }, [cartItens]);
 
   return (
     <ProductsContext.Provider
@@ -101,8 +127,12 @@ export function ProductsContextProvider({
         cartAmount,
         totalPrice,
         addToCart,
+        addressData,
+        paymentMethod,
         changeCartItemAmount,
         removeProductFromCart,
+        selectPaymentMethod,
+        getUserAddress,
       }}
     >
       {children}

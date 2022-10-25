@@ -1,13 +1,34 @@
+import { useContext, useEffect } from "react";
 import { CurrencyCircleDollar, House, MapPinLine, Timer } from "phosphor-react";
+import { useNavigate } from "react-router-dom";
 
 import { HeaderAlt } from "../../components/HeaderAlt";
+import { StyledLink } from "../Checkout/styles";
+import { ProductsContext } from "../../context/productsContext";
+
 import { Container } from "../../styles/global";
 import { Heading, ItemContainer, SuccessContainer } from "./styles";
 
 import successImage from "../../assets/illustration.png";
-import { StyledLink } from "../Checkout/styles";
 
 export function Success() {
+  const { paymentMethod, addressData, cartItens } = useContext(ProductsContext);
+
+  const navigator = useNavigate();
+
+  const hasProductsInCart = cartItens.length === 0;
+
+  useEffect(() => {
+    if (hasProductsInCart) {
+      navigator("/");
+    }
+  }, [hasProductsInCart]);
+
+  function handleGoHomeAndClearStorage() {
+    localStorage.clear();
+    navigator("/");
+  }
+
   return (
     <Container>
       <HeaderAlt />
@@ -18,13 +39,18 @@ export function Success() {
           <ItemContainer>
             <MapPinLine size={"1.625rem"} weight={"fill"} />
             <div>
-              <span>
-                Entrega em{" "}
-                <strong>
-                  Rua João Daniel Martinelli, 102 <br></br> Farrapos - Porto
-                  Alegre, RS
-                </strong>
-              </span>
+              {!hasProductsInCart ? (
+                <span>
+                  Entrega em &nbsp;
+                  <strong>
+                    {addressData.address}, {addressData.number} <br></br>{" "}
+                    {addressData.district} - {addressData.city},{" "}
+                    {addressData.UF}
+                  </strong>
+                </span>
+              ) : (
+                ""
+              )}
             </div>
           </ItemContainer>
           <ItemContainer>
@@ -39,11 +65,11 @@ export function Success() {
             <CurrencyCircleDollar size={"1.625rem"} weight={"fill"} />
             <div>
               <span>
-                Pagamento na entrega: <strong>Cartão de Crédito</strong>
+                Pagamento na entrega: <strong>{paymentMethod}</strong>
               </span>
             </div>
           </ItemContainer>
-          <StyledLink to={"/"}>
+          <StyledLink onClick={handleGoHomeAndClearStorage}>
             <House weight="fill" />
             Voltar à página inicial
           </StyledLink>

@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 export const HeroBase = styled.section`
-  background-color: #D4E9E2;
+  background-color: #d4e9e2;
   width: 100%;
   height: 25rem;
   margin-top: 5.5rem;
   margin-bottom: 1rem;
-`
+`;
 
 export const HeroContainer = styled.div`
   margin: 0 auto;
@@ -19,15 +19,15 @@ export const HeroContainer = styled.div`
     object-fit: contain;
     height: 25rem;
   }
-`
+`;
 
 export const HeroHeading = styled.h1`
   line-height: 1;
   font-size: 2.625rem;
-  color: ${props => props.theme["green-900"]};
+  color: ${(props) => props.theme["green-900"]};
   margin-bottom: 1rem;
   letter-spacing: -1px;
-`
+`;
 
 export const GridHighlights = styled.div`
   margin-top: 2rem;
@@ -37,20 +37,20 @@ export const GridHighlights = styled.div`
   flex-wrap: wrap;
   width: 85%;
   margin-bottom: 1.25rem;
-`
+`;
 
 export const HighlightContainer = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 1.2rem;
-  gap: .5rem;
+  gap: 0.5rem;
   width: 50%;
 
   span {
     width: 32px;
     height: 32px;
     display: inline-block;
-    background-color: ${props => props.theme["green-500"]};
+    background-color: ${(props) => props.theme["green-500"]};
     border-radius: 5rem;
     padding: 0.4375rem;
 
@@ -64,4 +64,4 @@ export const HighlightContainer = styled.div`
     font-weight: 500;
     font-size: 1rem;
   }
-`
+`;

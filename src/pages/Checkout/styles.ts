@@ -55,29 +55,24 @@ export const ItensContainer = styled.div`
     }
   }
 
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+  }
+`;
 
-    label {
-      font-weight: 500;
-      font-size: 0.875rem;
-    }
+export const StyledInput = styled.input`
+  background-color: ${(props) => props.theme.white};
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 500;
 
-    input {
-      background-color: ${(props) => props.theme.white};
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 5px;
-      font-size: 1rem;
-      font-weight: 500;
-
-      &:focus {
-        outline: none;
-        box-shadow: 0px 0px 0px 1px ${(props) => props.theme["green-500"]};
-      }
-    }
+  &:focus {
+    outline: none;
+    box-shadow: 0px 0px 0px 1px ${(props) => props.theme["green-500"]};
   }
 `;
 
@@ -149,7 +144,28 @@ export const CartMessage = styled.div`
   }
 `;
 
-export const StyledLink = styled(Link)`
+export const StyledLink = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  border-radius: 5rem;
+  padding: 0.5rem 1rem;
+  background-color: ${(props) => props.theme["green-500"]};
+  color: ${(props) => props.theme["white"]};
+  transition: all ease 100ms;
+
+  &:hover {
+    background-color: ${(props) => props.theme["green-900"]};
+  }
+
+  svg {
+    fill: ${(props) => props.theme.white};
+  }
+`;
+
+export const ButtonHome = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -187,14 +203,14 @@ export const PriceContainer = styled.div`
 `;
 
 export const PriceTotalContainer = styled(PriceContainer)`
-  border-top: 1px solid rgba(0, 0, 0, 0.1); 
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding-top: 1rem;
-  
+
   span {
     font-size: 1.25rem;
     font-weight: 700;
     text-transform: uppercase;
-    
+
     &:last-child {
       font-size: 1.25rem;
     }

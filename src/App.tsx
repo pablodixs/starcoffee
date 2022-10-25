@@ -1,5 +1,6 @@
 import { BrowserRouter } from "react-router-dom";
-import { ProductsContextProvider } from "./context/productsContext";
+
+import { ProductsContextProvider } from "./context/ProductsContext";
 import { Router } from "./Router";
 
 export function App() {
@@ -9,5 +10,5 @@ export function App() {
         <Router />
       </ProductsContextProvider>
     </BrowserRouter>
-  )
+  );
 }

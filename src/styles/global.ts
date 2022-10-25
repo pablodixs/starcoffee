@@ -1,21 +1,21 @@
-import styled, { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from "styled-components";
 
-import regWoff from '../assets/fonts/SoDoSans-Regular.woff'
-import regWoff2 from '../assets/fonts/SoDoSans-Regular.woff2'
-import regEot from '../assets/fonts/SoDoSans-Regular.eot'
-import regTtf from '../assets/fonts/SoDoSans-Regular.ttf'
-import semiWoff from '../assets/fonts/SoDoSans-SemiBold.woff'
-import semiWoff2 from '../assets/fonts/SoDoSans-SemiBold.woff2'
-import semiEot from '../assets/fonts/SoDoSans-SemiBold.eot'
-import semiTtf from '../assets/fonts/SoDoSans-SemiBold.ttf'
-import boldWoff from '../assets/fonts/SoDoSans-Bold.woff'
-import boldWoff2 from '../assets/fonts/SoDoSans-Bold.woff2'
-import boldEot from '../assets/fonts/SoDoSans-Bold.eot'
-import boldTtf from '../assets/fonts/SoDoSans-Bold.ttf'
-import blackWoff from '../assets/fonts/SoDoSans-Black.woff'
-import blackWoff2 from '../assets/fonts/SoDoSans-Black.woff2'
-import blackEot from '../assets/fonts/SoDoSans-Black.eot'
-import blackTtf from '../assets/fonts/SoDoSans-Black.ttf'
+import regWoff from "../assets/fonts/SoDoSans-Regular.woff";
+import regWoff2 from "../assets/fonts/SoDoSans-Regular.woff2";
+import regEot from "../assets/fonts/SoDoSans-Regular.eot";
+import regTtf from "../assets/fonts/SoDoSans-Regular.ttf";
+import semiWoff from "../assets/fonts/SoDoSans-SemiBold.woff";
+import semiWoff2 from "../assets/fonts/SoDoSans-SemiBold.woff2";
+import semiEot from "../assets/fonts/SoDoSans-SemiBold.eot";
+import semiTtf from "../assets/fonts/SoDoSans-SemiBold.ttf";
+import boldWoff from "../assets/fonts/SoDoSans-Bold.woff";
+import boldWoff2 from "../assets/fonts/SoDoSans-Bold.woff2";
+import boldEot from "../assets/fonts/SoDoSans-Bold.eot";
+import boldTtf from "../assets/fonts/SoDoSans-Bold.ttf";
+import blackWoff from "../assets/fonts/SoDoSans-Black.woff";
+import blackWoff2 from "../assets/fonts/SoDoSans-Black.woff2";
+import blackEot from "../assets/fonts/SoDoSans-Black.eot";
+import blackTtf from "../assets/fonts/SoDoSans-Black.ttf";
 
 export const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -63,7 +63,7 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: 'SoDo', sans-serif;
-    color: ${props => props.theme.black};
+    color: ${(props) => props.theme.black};
     text-rendering: geometricPrecision;
     -webkit-font-smoothing: antialiased;
   }
@@ -81,12 +81,12 @@ export const GlobalStyle = createGlobalStyle`
       -webkit-appearance: none;
       margin: 0;
   }
-`
+`;
 
 export const Container = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-`
+`;
 
 export const FlexContainer = styled.div`
   display: flex;
@@ -94,4 +94,4 @@ export const FlexContainer = styled.div`
   align-items: center;
   min-width: 1200px;
   margin: 0 auto;
-`
+`;

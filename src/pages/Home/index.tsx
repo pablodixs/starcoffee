@@ -9,5 +9,5 @@ export function Home() {
       <Hero />
       <Catalog />
     </>
-  )
+  );
 }
