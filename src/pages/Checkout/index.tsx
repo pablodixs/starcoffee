@@ -6,7 +6,7 @@ import { MapPin, CurrencyDollarSimple, House } from "phosphor-react";
 
 import { HeaderAlt } from "../../components/HeaderAlt";
 import { ToggleGroup } from "../../components/ToggleGroup";
-import { ProductsContext } from "../../context/productsContext";
+import { ProductsContext } from "../../context/ProductsContext";
 
 import { Container } from "../../styles/global";
 import {

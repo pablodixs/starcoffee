@@ -1,7 +1,7 @@
 import { TrashSimple } from "phosphor-react";
 import { useContext } from "react";
 
-import { ProductsContext } from "../../context/productsContext";
+import { ProductsContext } from "../../context/ProductsContext";
 
 import { ItemCard, RemoveButton, StyledButtonQuant } from "./styles";
 

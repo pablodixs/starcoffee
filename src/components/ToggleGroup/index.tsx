@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import { ProductsContext } from "../../context/productsContext";
+import { ProductsContext } from "../../context/ProductsContext";
 
 import { ToggleContainer, ToggleItem } from "./styles";
 

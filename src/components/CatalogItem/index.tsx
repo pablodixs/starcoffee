@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 
-import { ProductsContext } from "../../context/productsContext";
+import { ProductsContext } from "../../context/ProductsContext";
 import { AmountControl } from "../AmountControls";
 
 import {

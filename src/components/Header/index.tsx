@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { MapPin, ShoppingCart } from "phosphor-react";
 
-import { ProductsContext } from "../../context/productsContext";
+import { ProductsContext } from "../../context/ProductsContext";
 import { FlexContainer } from "../../styles/global";
 
 import {
@@ -11,7 +11,6 @@ import {
   HeaderContainer,
   Logo,
   OptionsContainer,
-  PrimaryA,
   SecondaryA,
 } from "./styles";
 

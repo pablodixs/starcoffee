@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import { HeaderAlt } from "../../components/HeaderAlt";
 import { StyledLink } from "../Checkout/styles";
-import { ProductsContext } from "../../context/productsContext";
+import { ProductsContext } from "../../context/ProductsContext";
 
 import { Container } from "../../styles/global";
 import { Heading, ItemContainer, SuccessContainer } from "./styles";
