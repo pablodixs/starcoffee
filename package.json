@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@radix-ui/react-radio-group": "^1.1.0",
+    "@radix-ui/react-toggle-group": "^1.0.1",
+    "@stitches/react": "^1.2.8",
     "@types/styled-components": "^5.1.26",
     "immer": "^9.0.15",
     "phosphor-react": "^1.4.1",

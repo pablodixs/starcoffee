@@ -1,4 +1,3 @@
-import { ShoppingCart } from "phosphor-react";
 import { useContext, useState } from "react";
 import { ProductsContext } from "../../context/productsContext";
 import { AmountControl } from "../AmountControls";

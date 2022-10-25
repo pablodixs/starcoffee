@@ -31,7 +31,7 @@ export const InfoContainer = styled.section`
 export const ItensContainer = styled.div`
   background-color: ${(props) => props.theme["green-100"]};
   padding: 1rem 1.125rem;
-  margin: 0.5rem 0;
+  margin: 1rem 0;
   border-radius: 8px;
 
   header {
@@ -121,7 +121,7 @@ export const ListItensContainer = styled.section`
 export const ConfirmButton = styled.button`
   width: 100%;
   border: none;
-  border-radius: 5px;
+  border-radius: 5rem;
   background-color: ${(props) => props.theme["green-500"]};
   padding: 1rem;
   font-size: 1rem;

@@ -5,6 +5,7 @@ import { AmountControl } from "../../components/AmountControls";
 import { CartItem } from "../../components/CartItem";
 
 import { HeaderAlt } from "../../components/HeaderAlt";
+import { ToggleGroup } from "../../components/ToggleGroup";
 import { ProductsContext } from "../../context/productsContext";
 import { Container } from "../../styles/global";
 import {
@@ -93,6 +94,7 @@ export function Checkout() {
                     O pagamento é feito na entrega. Escolha a forma que deseja
                     pagar
                   </p>
+                  <ToggleGroup />
                 </div>
               </header>
             </ItensContainer>

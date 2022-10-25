@@ -1,7 +1,5 @@
-import { createContext, ReactNode, useState, useReducer } from "react";
+import { createContext, ReactNode, useEffect, useState } from "react";
 import { produce } from "immer";
-
-export const ProductsContext = createContext({} as ProductContextyType);
 
 interface CoffeeProps {
   id: number;
@@ -24,17 +22,26 @@ interface ProductContextProviderProps {
   children: ReactNode;
 }
 
+export const ProductsContext = createContext({} as ProductContextyType);
+
 export function ProductsContextProvider({
   children,
 }: ProductContextProviderProps) {
-  const [cartItens, setCartItens] = useState<CoffeeProps[]>([]);
+  const [cartItens, setCartItens] = useState<CoffeeProps[]>(() => {
+    const productsOnCart = localStorage.getItem('@starcoffe:cart-itens-1.0.0')
+
+    if (productsOnCart) {
+      return JSON.parse(productsOnCart)
+    } 
+
+    return []
+  });
 
   const cartAmount = cartItens.length;
 
   const totalPrice = cartItens.reduce((total, cartItem) => {
     return total + cartItem.price * cartItem.amount;
-  }, 0)
-
+  }, 0);
 
   function addToCart(coffeeData: CoffeeProps) {
     const hasProductInCartAlready = cartItens.findIndex(
@@ -82,6 +89,10 @@ export function ProductsContextProvider({
 
     setCartItens(refreshedCart);
   }
+
+  useEffect(() => {
+    localStorage.setItem('@starcoffe:cart-itens-1.0.0', JSON.stringify(cartItens))
+  }, [cartItens])
 
   return (
     <ProductsContext.Provider
